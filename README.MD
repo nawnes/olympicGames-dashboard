@@ -1,10 +1,10 @@
 # Projet NoSQL - Dashboard MongoDB Atlas
 
 ## Présentation
-Ce projet a été développé dans le cadre du cours de NoSQL de Monsieur Touati. Il s'agit d'un tableau de bord interactif qui se connecte à une base de données MongoDB Atlas pour visualiser et analyser les données d'événements sportifs des Jeux Olympiques.
+Ce projet a été développé dans le cadre du cours de NoSQL de Monsieur Touati. Il s'agit d'un tableau de bord interactif qui se connecte à une base de données MongoDB Atlas (dans le cloud) pour visualiser et analyser les données d'événements sportifs des Jeux Olympiques.
 
 ## Fonctionnalités
-- Connexion à une base de données MongoDB Atlas
+- Connexion à une base de données MongoDB Atlas dans le cloud
 - Visualisation des statistiques clés : événements, utilisateurs, réservations, revenus
 - Graphiques interactifs pour l'analyse des données
 - TOP 5 des événements les plus populaires
@@ -22,41 +22,35 @@ Ce projet démontre plusieurs concepts NoSQL vus en cours :
 
 ## Instructions d'exécution
 
-Cette application est fournie sous forme d'image Docker pour faciliter son déploiement sans configuration.
+Cette application est fournie sous forme d'image Docker pour faciliter son déploiement sans configuration. **Toutes les données sont stockées sur MongoDB Atlas dans le cloud**, il n'y a donc pas besoin de configurer une base de données locale.
 
 ### Prérequis
 - Docker installé sur votre machine
 
 ### Étapes d'exécution
 
-1. **Téléchargez l'image Docker** depuis ce dépôt (fichier `dashboard-olympicgames.tar.gz`)
-
-2. **Décompressez l'image** :
-   ```bash
-   # Sur Linux/Mac
-   gzip -d dashboard-olympicgames.tar.gz
-   
-   # Sur Windows avec 7-Zip
-   # Clic droit sur dashboard-olympicgames.tar.gz → 7-Zip → Extraire ici
+1. **Téléchargez l'image Docker** en utilisant ce lien :
+   ```
+   https://www.swisstransfer.com/d/1de13ab0-f62d-4cae-825d-e01366273ddd
    ```
 
-3. **Chargez l'image dans Docker** :
+2. **Chargez l'image dans Docker** (le fichier est déjà au format .tar) :
    ```bash
    docker load -i dashboard-olympicgames.tar
    ```
 
-4. **Exécutez le conteneur** :
+3. **Exécutez le conteneur** :
    ```bash
    docker run -p 8050:8050 dashboard-olympicgames
    ```
 
-5. **Accédez au tableau de bord** dans votre navigateur à l'adresse :
+4. **Accédez au tableau de bord** dans votre navigateur à l'adresse :
    ```
    http://localhost:8050
    ```
 
-## Structure de la base de données
-L'application se connecte à une base de données `olympicGames` contenant les collections suivantes :
+## Structure de la base de données (MongoDB Atlas Cloud)
+L'application se connecte à une base de données `olympicGames` hébergée sur MongoDB Atlas contenant les collections suivantes :
 
 1. **events** : Événements sportifs
    ```javascript
@@ -153,4 +147,4 @@ Ce projet démontre les compétences suivantes :
 - Connexion à MongoDB Atlas (cloud)
 - Conteneurisation avec Docker
 
-La connexion à la base de données est déjà configurée dans l'image Docker pour faciliter l'évaluation.
+La connexion à la base de données MongoDB Atlas est déjà configurée dans l'image Docker pour faciliter l'évaluation. Aucune installation de base de données n'est nécessaire car toutes les données sont hébergées dans le cloud.
